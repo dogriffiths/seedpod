@@ -1,7 +1,7 @@
 import CypressWidget from "../relish-cypress/CypressWidget";
 import Component from "../relish-core/Component";
-import AudioPlayer from "./AudioPlayer";
 import ImageWidget from "./ImageWidget";
+import MediaPlayer from "./MediaPlayer";
 
 export default class extends CypressWidget {
     constructor(selector: HTMLElement, parent: Component) {
@@ -21,7 +21,7 @@ export default class extends CypressWidget {
     }
 
     file() {
-        return new AudioPlayer('.file', this)
+        return new MediaPlayer('.file', this)
     }
 
     fileType() {
