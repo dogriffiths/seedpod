@@ -1,6 +1,7 @@
 import CypressWidget from "../relish-cypress/CypressWidget";
 import Component from "../relish-core/Component";
 import AudioPlayer from "./AudioPlayer";
+import ImageWidget from "./ImageWidget";
 
 export default class extends CypressWidget {
     constructor(selector: HTMLElement, parent: Component) {
@@ -32,6 +33,6 @@ export default class extends CypressWidget {
     }
 
     image() {
-        return new CypressWidget('.image', this)
+        return new ImageWidget('.image', this)
     }
 }

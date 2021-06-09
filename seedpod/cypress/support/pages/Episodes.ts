@@ -14,15 +14,11 @@ export default class Home extends CypressPage {
         return currentUrl.indexOf(`${Cypress.config().baseUrl}${this.getPath()}`) === 0;
     }
 
-    get episodes() {
-        return new Table('table', this)
-    }
-
     get errorMessage() {
         return new CypressWidget('.error', this)
     }
 
-    get allEpisodes() {
+    get episodes() {
         return new EpisodeList('.EpisodeList', this)
     }
 }

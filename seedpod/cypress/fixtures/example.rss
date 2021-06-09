@@ -20,7 +20,7 @@
 </itunes:category>
 <itunes:keywords>separate, by, comma, and, space</itunes:keywords>
 <itunes:explicit>no</itunes:explicit>
-<itunes:image href="http://www.YourSite.com/ImageSize300X300.jpg" />
+<itunes:image href="https://www.example.com/podcast.jpg" />
 <atom:link href="https://www.YourSite.com/feed.xml" rel="self" type="application/rss+xml" />
 <pubDate>Fri, 05 Oct 2018 09:00:00 GMT</pubDate>
 <title>Verbose title of the podcast</title>
@@ -46,7 +46,6 @@
    <enclosure url="https://www.example.com/1.mp3" type="audio/mpeg" length="2" />
    <guid>https://www.YourSite.com/FILE.EXT</guid>
    <itunes:duration>4:56:18</itunes:duration>
-   <itunes:image href="https://www.example.com/2.jpg"/>
    <pubDate>Fri, 05 Oct 2018 09:00:00 GMT</pubDate>
 </item>
 <!--END REPEAT-->

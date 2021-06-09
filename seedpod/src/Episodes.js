@@ -4,6 +4,7 @@ import useQueryParam from "./useQueryParam";
 const Episodes = () => {
     const url = useQueryParam('url')
     const {data: feed, error: feedError} = useFeed(url)
+        console.log('XXXXXX feed', feed)
 
     if (feedError) {
         return <div className='error'>
@@ -21,9 +22,9 @@ const Episodes = () => {
                     <audio controls>
                         <source className='file' src={i.enclosure.url} type={i.enclosure.type}/>
                     </audio>
+                    <img className='image' src={i.itunes.image || feed.itunes.image} width={300} height={300}/>
                     <div className='fileType'>{i.enclosure.type}</div>
                     <div className='fileSize'>{i.enclosure.length}</div>
-                    <div className='image'>{i.itunes.image}</div>
                 </div>
             ))
         }
