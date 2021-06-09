@@ -1,5 +1,7 @@
 /// <reference types="cypress" />
 
+import {home} from "../support/pages";
+
 context('Actions', () => {
     it('should show me the episodes on a podcast', () => {
         // Given I know what is on a podcast
@@ -8,9 +10,9 @@ context('Actions', () => {
             body: 'Hello',
         })
         // When I choose to view the episodes for the podcast's URL
-        cy.visit('/')
-        cy.get('.urlFeed').type('http://www.example.com/podcast.rss')
-        cy.contains('View URL').click()
+        home.launch()
+        home.urlFeed.set('http://www.example.com/podcast.rss')
+        home.viewURLButton.click()
         // Then I should see the correct episodes
 
     })
