@@ -1,7 +1,6 @@
 * Stores
-** Play a podcast episode
-** View a list of episodes in a podcast
-** Subscribe to a podcast
 ** View a podcast by URL
+** Play a podcast episode
+** Subscribe to a podcast
 ** Add a podcast to a playlist
 ** Play a playlist
