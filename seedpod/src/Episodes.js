@@ -1,7 +1,14 @@
+import {useLocation} from 'react-router-dom'
+
 import useFeed from "./useFeed";
+function useQueryParam(param) {
+    const location = useLocation();
+    return new URLSearchParams(location.search).get(param);
+}
 
 const Episodes = () => {
-    const {data: feed} = useFeed('http://www.example.com/podcast.rss')
+    const url = useQueryParam('url')
+    const {data: feed} = useFeed(url)
 
     return <table>
         <thead>

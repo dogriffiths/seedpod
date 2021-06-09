@@ -8,6 +8,10 @@ export default class Home extends CypressPage {
         super("/episodes");
     }
 
+    matchesUrl(currentUrl: string): boolean {
+        return currentUrl.indexOf(`${Cypress.config().baseUrl}${this.getPath()}`) === 0;
+    }
+
     get episodes() {
         return new Table('table', this)
     }

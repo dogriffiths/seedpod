@@ -6,13 +6,13 @@ import {table} from "../support/utils";
 context('Actions', () => {
     it('should show me the episodes on a podcast', () => {
         // Given I know what is on a podcast
-        cy.intercept('http://www.example.com/podcast.rss', {
+        cy.intercept('http://www.example.com/aPodcast.rss', {
             statusCode: 200,
             fixture: 'example.rss',
         })
         // When I choose to view the episodes for the podcast's URL
         home.launch()
-        home.urlFeed.set('http://www.example.com/podcast.rss')
+        home.urlFeed.set('http://www.example.com/aPodcast.rss')
         home.viewURLButton.click()
         // Then I should see the correct episodes
         episodes.episodes.matches(table`

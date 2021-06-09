@@ -8,7 +8,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
             <Switch>
-                <Route path='/episodes'>
+                <Route path={'/episodes'}>
                     <Episodes/>
                 </Route>
                 <main>
