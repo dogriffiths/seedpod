@@ -15,7 +15,8 @@ export default class extends CypressAbstractListWidget<Episode> {
         for (let i = 0; i < rows.length; i++) {
             const row = rows[i];
             cy.get('.Episode').eq(i).should($el => {
-                (new Episode($el.get()[0], this)).matches(row);
+                const result = $el.get ? $el.get()[0] : $el;
+                (new Episode(result as HTMLElement, this)).matches(row);
             });
         }
     }
