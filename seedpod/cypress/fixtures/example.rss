@@ -34,17 +34,19 @@
 <item>
    <title>Episode 1</title>
    <description>All about fish</description>
-   <enclosure url="https://www.YourSite.com/FILE.EXT" type="audio/mpeg" length="1" />
+   <enclosure url="https://www.example.com/1.mp4" type="video/mpeg" length="1" />
    <guid>https://www.YourSite.com/FILE.EXT</guid>
-   <itunes:duration>H:MM:SS</itunes:duration>
+   <itunes:duration>1:23:45</itunes:duration>
+   <itunes:image href="https://www.example.com/1.jpg"/>
    <pubDate>Fri, 05 Oct 2018 09:00:00 GMT</pubDate>
 </item>
 <item>
    <title>Episode 2</title>
    <description>All about dogs</description>
-   <enclosure url="https://www.YourSite.com/FILE.EXT" type="audio/mpeg" length="1" />
+   <enclosure url="https://www.example.com/1.mp3" type="audio/mpeg" length="2" />
    <guid>https://www.YourSite.com/FILE.EXT</guid>
-   <itunes:duration>H:MM:SS</itunes:duration>
+   <itunes:duration>4:56:18</itunes:duration>
+   <itunes:image href="https://www.example.com/2.jpg"/>
    <pubDate>Fri, 05 Oct 2018 09:00:00 GMT</pubDate>
 </item>
 <!--END REPEAT-->

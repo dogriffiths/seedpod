@@ -20,9 +20,9 @@ context('Actions', () => {
         home.viewURLButton.click()
         // Then I should see the correct episodes
         episodes.episodes.matches(table`
-        | Title     | Description    |
-        | Episode 1 | All about fish |
-        | Episode 2 | All about dogs |
+        | Title     | Description    | Duration | File                          | File type  | File size | Image                         |
+        | Episode 1 | All about fish | 1:23:45  | https://www.example.com/1.mp4 | video/mpeg | 1         | https://www.example.com/1.jpg |
+        | Episode 2 | All about dogs | 4:56:18  | https://www.example.com/1.mp3 | audio/mpeg | 2         | https://www.example.com/2.jpg |
         `)
     })
     it('should show me an error if the feed has a funny status code', () => {
