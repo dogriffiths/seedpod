@@ -10,6 +10,6 @@ export default class extends CypressWidget {
     }
 
     matches(s: string) {
-        expect((this.get() as HTMLElement).getAttribute('src')).equals(s)
+        expect((this.get() as HTMLElement).getAttribute('data-src')).equals(s)
     }
 }
