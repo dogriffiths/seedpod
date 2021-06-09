@@ -8,7 +8,13 @@ function useQueryParam(param) {
 
 const Episodes = () => {
     const url = useQueryParam('url')
-    const {data: feed} = useFeed(url)
+    const {data: feed, error: feedError} = useFeed(url)
+
+    if (feedError) {
+        return <div className='error'>
+            {feedError}
+        </div>
+    }
 
     return <table>
         <thead>
