@@ -1,6 +1,7 @@
 import CypressPage from "../relish-cypress/CypressPage";
 import Table from "../components/Table";
 import CypressWidget from "../relish-cypress/CypressWidget";
+import EpisodeList from "../components/EpisodeList";
 
 // <reference path="cypress/types/index.d.ts" />
 
@@ -19,5 +20,9 @@ export default class Home extends CypressPage {
 
     get errorMessage() {
         return new CypressWidget('.error', this)
+    }
+
+    get allEpisodes() {
+        return new EpisodeList('.EpisodeList', this)
     }
 }

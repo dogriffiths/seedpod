@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 import {episodes, home} from "../support/pages";
-import {table} from "../support/utils";
+import {table, tableRows} from "../support/utils";
 
 context('Actions', () => {
     it('should show me the episodes on a podcast', () => {
@@ -19,7 +19,7 @@ context('Actions', () => {
         home.urlFeed.set('http://www.example.com/aPodcast.rss')
         home.viewURLButton.click()
         // Then I should see the correct episodes
-        episodes.episodes.matches(table`
+        episodes.allEpisodes.matches(tableRows`
         | Title     | Description    | Duration | File                          | File type  | File size | Image                         |
         | Episode 1 | All about fish | 1:23:45  | https://www.example.com/1.mp4 | video/mpeg | 1         | https://www.example.com/1.jpg |
         | Episode 2 | All about dogs | 4:56:18  | https://www.example.com/1.mp3 | audio/mpeg | 2         | https://www.example.com/2.jpg |

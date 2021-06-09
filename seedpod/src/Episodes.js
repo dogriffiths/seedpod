@@ -1,11 +1,5 @@
-import {useLocation} from 'react-router-dom'
-
 import useFeed from "./useFeed";
-
-function useQueryParam(param) {
-    const location = useLocation();
-    return new URLSearchParams(location.search).get(param);
-}
+import useQueryParam from "./useQueryParam";
 
 const Episodes = () => {
     const url = useQueryParam('url')
@@ -17,34 +11,21 @@ const Episodes = () => {
         </div>
     }
 
-    return <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Duration</th>
-            <th>File</th>
-            <th>File type</th>
-            <th>File size</th>
-            <th>Image</th>
-        </tr>
-        </thead>
-        <tbody>
+    return <>
         {
             feed && feed.items && feed.items.map(i => (
-                <tr>
-                    <td>{i.title}</td>
-                    <td>{i.content}</td>
-                    <td>{i.itunes.duration}</td>
-                    <td>{i.enclosure.url}</td>
-                    <td>{i.enclosure.type}</td>
-                    <td>{i.enclosure.length}</td>
-                    <td>{i.itunes.image}</td>
-                </tr>
+                <div className='Episode'>
+                    <div className='title'>{i.title}</div>
+                    <div className='description'>{i.content}</div>
+                    <div className='duration'>{i.itunes.duration}</div>
+                    <div className='file'>{i.enclosure.url}</div>
+                    <div className='fileType'>{i.enclosure.type}</div>
+                    <div className='fileSize'>{i.enclosure.length}</div>
+                    <div className='image'>{i.itunes.image}</div>
+                </div>
             ))
         }
-        </tbody>
-    </table>
+        </>
 }
 
 export default Episodes;

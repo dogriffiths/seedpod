@@ -1,4 +1,6 @@
-function table(s: TemplateStringsArray) {
+import TableRow from "./relish-core/TableRow";
+
+function table(s: TemplateStringsArray): string[][] {
     return s
         .toString()
         .split("\n")
@@ -12,6 +14,20 @@ function table(s: TemplateStringsArray) {
         );
 }
 
+function tableRows(s: TemplateStringsArray): TableRow[] {
+    const arrs = table(s);
+    const result = [];
+    const headings = arrs[0]
+    for (let i = 1; i < arrs.length; i++) {
+        const obj: any = {}
+        for (let j = 0; j < headings.length; j++) {
+            obj[headings[j]] = arrs[i][j];
+        }
+        result.push(new TableRow(obj));
+    }
+    return result;
+}
+
 const stringSized = (n: number): string => Array(n + 1).join("x");
 
-export { table, stringSized };
+export { table, stringSized, tableRows };
