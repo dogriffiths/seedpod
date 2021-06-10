@@ -41,5 +41,19 @@
 .EpisodeMedia-detailsDescription {
     min-height: 250px;
     max-height: 250px;
-    overflow-y: hidden;
+    overflow-y: scroll;
+}
+
+
+@media screen and (max-width: 600px) {
+    .EpisodeMedia {
+        flex-direction: column;
+    }
+
+    .EpisodeMedia audio {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        width: calc(100vw - 120px);
+        order: -1;
+    }
 }
