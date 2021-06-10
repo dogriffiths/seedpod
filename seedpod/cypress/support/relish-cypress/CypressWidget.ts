@@ -79,6 +79,9 @@ export default class CypressWidget extends Widget<string | HTMLElement> {
         if (this.isElementBased()) {
             return cy.wrap(selector);
         }
+        if (selector === null) {
+            throw new Error('Selector object is null. Was the wrong selector string set?')
+        }
         let parent1 = this.getParent();
         if (parent1 instanceof CypressWidget) {
             if (

@@ -1,39 +1,43 @@
-import {useState} from "react";
+import parse from 'html-react-parser'
 import './EpisodeMedia.css'
 
-const EpisodeMedia = ({episode, image}) => {
-    const [open, setOpen] = useState(false)
-
+const EpisodeMedia = ({episode, image, open}) => {
     if (!episode) {
         return null
     }
 
     const isVideo = episode.enclosure.type.indexOf('video') !== -1;
+    const description = episode.content || episode['content:encoded'];
 
     return <div className='EpisodeMedia'>
         {
-            image &&
+            open && image &&
             (
                 isVideo ? (
-                    (!open) &&
-                    <img src={image}/>
+                    <video controls poster={image}>
+                        <source src={episode.enclosure.url} type={episode.enclosure.type}/>
+                    </video>
                 ) : (
                     <img src={image}/>
                 )
             )
         }
-        <button onClick={() => setOpen(t => !t)} className='file' data-src={episode.enclosure.url}>Open</button>
-        {
-            open && (episode.enclosure.type.indexOf('audio') !== -1
-                ?
-                <audio controls>
-                    <source src={episode.enclosure.url} type={episode.enclosure.type}/>
-                </audio>
-                :
-                <video controls poster={image}>
-                    <source src={episode.enclosure.url} type={episode.enclosure.type}/>
-                </video>)
-        }
+        <div className='EpisodeMedia-details'>
+            <div className='EpisodeMedia-detailsDescription'>
+                {
+                    description &&
+                    parse(description)
+                }
+            </div>
+            {
+                open && (episode.enclosure.type.indexOf('audio') !== -1)
+                    ?
+                    <audio controls>
+                        <source src={episode.enclosure.url} type={episode.enclosure.type}/>
+                    </audio>
+                    : null
+            }
+        </div>
     </div>
 }
 

@@ -1,22 +1,23 @@
 import CypressWidget from "../relish-cypress/CypressWidget";
 import ImageWidget from "./ImageWidget";
-import MediaPlayer from "./MediaPlayer";
+import EpisodeDetails from "./EpisodeDetails";
+import EpisodeMedia from "./EpisodeMedia";
 
 export default class Episode extends CypressWidget {
     title() {
-        return new CypressWidget('.title', this)
+        return new CypressWidget('.Episode-title', this)
     }
 
     description() {
-        return new CypressWidget('.description', this)
+        return new CypressWidget('.Episode-description', this)
     }
 
     duration() {
         return new CypressWidget('.duration', this)
     }
 
-    file() {
-        return new MediaPlayer('.file', this)
+    details() {
+        return new EpisodeDetails('.Episode-details', this)
     }
 
     fileType() {
@@ -29,5 +30,9 @@ export default class Episode extends CypressWidget {
 
     image() {
         return new ImageWidget('.image', this)
+    }
+
+    media() {
+        return new EpisodeMedia('.EpisodeMedia', this);
     }
 }

@@ -34,6 +34,7 @@
 <item>
    <title>Episode 1</title>
    <description>All about fish</description>
+   <content>All about fish</content>
    <enclosure url="https://www.example.com/1.mp4" type="video/mpeg" length="1" />
    <guid>https://www.YourSite.com/FILE.EXT</guid>
    <itunes:duration>1:23:45</itunes:duration>

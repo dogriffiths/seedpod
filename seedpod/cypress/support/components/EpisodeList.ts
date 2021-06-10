@@ -2,6 +2,7 @@ import CypressAbstractListWidget from "../relish-cypress/CypressAbstractListWidg
 import Episode from "./Episode";
 import Component from "../relish-core/Component";
 import TableRow from "../relish-core/TableRow";
+import CypressWidget from "../relish-cypress/CypressWidget";
 
 export default class EpisodeList extends CypressAbstractListWidget<Episode> {
     constructor(
@@ -19,5 +20,12 @@ export default class EpisodeList extends CypressAbstractListWidget<Episode> {
                 (new Episode(result as HTMLElement, this)).matches(row);
             });
         }
+    }
+
+    item(itemNo: number) {
+        return new Episode(
+            "./div[" + (itemNo + 1) + "]",
+            this
+        );
     }
 }

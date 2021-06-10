@@ -16,19 +16,23 @@ export const Basic = () => <EpisodeMedia/>;
 export const WithAudioEpisode = () => <EpisodeMedia
     image={imageURL}
     episode={{
+        description: '<p>This is an audio episode</p>',
         enclosure: {
             url: audioURL,
             type: 'audio/mpeg',
         }
     }}
+    open
 />;
 
 export const WithVideoEpisode = () => <EpisodeMedia
     image={imageURL}
     episode={{
+        description: '<p>This is a video</p>',
         enclosure: {
             url: videoURL,
             type: 'video/mp4',
         }
     }}
+    open
 />;

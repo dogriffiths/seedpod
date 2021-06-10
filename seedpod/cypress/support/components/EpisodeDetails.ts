@@ -1,7 +1,7 @@
 import CypressWidget from "../relish-cypress/CypressWidget";
 import Component from "../relish-core/Component";
 
-export default class MediaPlayer extends CypressWidget {
+export default class EpisodeDetails extends CypressWidget {
     mySelector: string;
 
     constructor(selector: string, parent: Component) {

@@ -20,10 +20,12 @@ context('Actions', () => {
         home.viewURLButton.click()
         // Then I should see the correct episodes
         episodes.episodes.matches(tableRows`
-        | Title     | Description    | Duration | File                          | File type  | File size | Image                               |
-        | Episode 1 | All about fish | 1:23:45  | https://www.example.com/1.mp4 | video/mpeg | 1         | https://www.example.com/1.jpg       |
-        | Episode 2 | All about dogs | 4:56:18  | https://www.example.com/1.mp3 | audio/mpeg | 2         | https://www.example.com/podcast.jpg |
+        | Title     | Description    | Duration | Details                       | File type  | File size |
+        | Episode 1 | All about fish | 1:23:45  | https://www.example.com/1.mp4 | video/mpeg | 1         |
+        | Episode 2 | All about dogs | 4:56:18  | https://www.example.com/1.mp3 | audio/mpeg | 2         |
         `)
+        episodes.episodes.item(1).click()
+        episodes.episodes.item(1).media().image().matches('https://www.example.com/podcast.jpg')
     })
     it('should show me an error if the feed has a funny status code', () => {
         // Given I look for a podcast with an error response

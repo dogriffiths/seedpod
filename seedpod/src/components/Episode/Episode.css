@@ -1,0 +1,43 @@
+.Episode {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background-color: #1b191b;
+    color: #ebe9eb;
+}
+
+.Episode-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px;
+}
+
+.Episode-title {
+    font-weight: bold;
+}
+
+.Episode-description {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 0;
+    max-width: calc(100vw - 300px);
+}
+
+.Episode-detailsFile {
+    font-size: 60%;
+    display: table;
+}
+
+.Episode-detailsFileField {
+    display: table-row;
+}
+
+.Episode-detailsFileField .Episode-detailsFileFieldValue, .Episode-detailsFileField strong {
+    display: table-cell;
+}
+
+.Episode-detailsFileField strong {
+    text-align: right;
+}
