@@ -7,7 +7,7 @@ context('Actions', () => {
     it('should show me the episodes on a podcast', () => {
         // Given I know what is on a podcast
         cy.intercept({
-            pathname: '/proxy',
+            pathname: '/api/proxy',
             query: {
                 url: 'http://www.example.com/aPodcast.rss'
             },
@@ -28,7 +28,7 @@ context('Actions', () => {
     it('should show me an error if the feed has a funny status code', () => {
         // Given I look for a podcast with an error response
         cy.intercept({
-            pathname: '/proxy',
+            pathname: '/api/proxy',
             query: {
                 url: 'http://www.example.com/error.rss'
             },

@@ -15,7 +15,7 @@ const useFeed = (url) => {
         (async () => {
 
             try {
-                let feedUrl = '/proxy?url=' + encodeURIComponent(url);
+                let feedUrl = '/api/proxy?url=' + encodeURIComponent(url);
                 const f = await parser.parseURL(feedUrl);
 
                 if (!canceled) {
