@@ -6,6 +6,10 @@
     cursor: default;
 }
 
+.EpisodeMedia a {
+    color: lightgreen;
+}
+
 .EpisodeMedia img {
     width: 300px;
     height: 300px;

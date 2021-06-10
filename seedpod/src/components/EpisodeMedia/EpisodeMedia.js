@@ -7,7 +7,7 @@ const EpisodeMedia = ({episode, image, open}) => {
     }
 
     const isVideo = episode.enclosure.type.indexOf('video') !== -1;
-    const description = episode.content || episode['content:encoded'];
+    const description = episode['content:encoded'] || episode.content;
 
     return <div className='EpisodeMedia'>
         {
