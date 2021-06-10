@@ -1,5 +1,4 @@
 import * as express from 'express';
-// import * as request from 'request';
 const request = require('request')
 const cookieParser = require('cookie-parser')();
 
@@ -8,12 +7,10 @@ const proxy = express();
 const cors = require('cors')({origin: true});
 proxy.use(cors);
 proxy.use(cookieParser);
-proxy.use(require('body-parser').raw({type: '*/*'}));
 
-proxy.get('*', function (req, res, next) {
+proxy.get('*', function (req, res) {
 
-    // Set CORS headers: allow all origins, methods, and headers: you may want to lock this down in a production environment
-    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Origin", "origin");
     res.header("Access-Control-Allow-Methods", "GET");
     res.header("Access-Control-Allow-Headers", req.header('access-control-request-headers'));
 
@@ -21,10 +18,9 @@ proxy.get('*', function (req, res, next) {
         // CORS Preflight
         res.send();
     } else {
-        console.log('XXXXXX request object', req);
         const targetURL = req.query.url;
         if (!targetURL) {
-            res.status(500).send({ error: 'There is no Target-Endpoint header in the request' });
+            res.status(500).send({ error: 'There is no url parameter in the request' });
             return;
         }
         request({ url: targetURL, method: req.method },
