@@ -1,5 +1,5 @@
 import parse from 'html-react-parser'
-import EpisodeMedia from "./EpisodeMedia";
+import EpisodeMedia from "../EpisodeMedia";
 
 const Episode = ({episode, feed}) => {
     return <div className='Episode'>

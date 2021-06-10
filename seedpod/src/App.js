@@ -1,7 +1,8 @@
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
-import './App.css';
-import URLForm from "./URLForm";
 import Episodes from "./Episodes";
+import URLForm from "./components/URLForm";
+
+import './App.css';
 
 function App() {
   return (

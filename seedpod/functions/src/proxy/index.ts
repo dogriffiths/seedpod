@@ -21,6 +21,7 @@ proxy.get('*', function (req, res, next) {
         // CORS Preflight
         res.send();
     } else {
+        console.log('XXXXXX request object', req);
         const targetURL = req.query.url;
         if (!targetURL) {
             res.status(500).send({ error: 'There is no Target-Endpoint header in the request' });
