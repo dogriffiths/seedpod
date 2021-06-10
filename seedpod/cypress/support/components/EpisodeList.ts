@@ -3,7 +3,7 @@ import Episode from "./Episode";
 import Component from "../relish-core/Component";
 import TableRow from "../relish-core/TableRow";
 
-export default class extends CypressAbstractListWidget<Episode> {
+export default class EpisodeList extends CypressAbstractListWidget<Episode> {
     constructor(
         selector: string | HTMLElement,
         parent: Component

@@ -1,13 +1,8 @@
 import CypressWidget from "../relish-cypress/CypressWidget";
-import Component from "../relish-core/Component";
 import ImageWidget from "./ImageWidget";
 import MediaPlayer from "./MediaPlayer";
 
-export default class extends CypressWidget {
-    constructor(selector: HTMLElement, parent: Component) {
-        super(selector, parent);
-    }
-
+export default class Episode extends CypressWidget {
     title() {
         return new CypressWidget('.title', this)
     }
