@@ -57,7 +57,7 @@ class CypressPage extends Component {
   assertAccessible() {
       this.assertVisible();
       cy.injectAxe();
-      cy.checkA11y(null, null, terminalLog);
+      cy.checkA11y(null, {}, terminalLog);
   }
 
   matchesUrl(currentUrl: string): boolean {

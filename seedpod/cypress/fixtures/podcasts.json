@@ -1,0 +1,14 @@
+[
+  {
+    "url": "http://www.example.com/podcast1.rss",
+    "title": "Example podcast 1",
+    "description": "Example description 1",
+    "image": "http://www.example.com/podcast1.jpg"
+  },
+  {
+    "url": "http://www.example.com/podcast2.rss",
+    "title": "Example podcast 2",
+    "description": "Example description 2",
+    "image": "http://www.example.com/podcast2.jpg"
+  }
+]

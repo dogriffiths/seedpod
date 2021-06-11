@@ -3,6 +3,8 @@ import Episodes from "./Episodes";
 import URLForm from "./components/URLForm";
 
 import './App.css';
+import PopularPodcasts from "./PopularPodcasts";
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
                 </Route>
                 <main>
                     <URLForm/>
+                    <PopularPodcasts/>
                 </main>
             </Switch>
         </BrowserRouter>

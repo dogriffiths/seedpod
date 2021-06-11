@@ -27,6 +27,9 @@ export default class CypressWidget extends Widget<string | HTMLElement> {
             (parent as CypressWidget).isElementBased()
                 ? parent.findElement(selector)
                 : selector;
+        if (!selector) {
+            throw new Error('Invalid selector: ' + selector);
+        }
         this.baseSelector = selector;
         this.parent = parent;
     }
@@ -51,6 +54,7 @@ export default class CypressWidget extends Widget<string | HTMLElement> {
                     " inside " +
                     (this.getParent().constructor as any).name;
                 }
+                console.log('XXXXX $elems', this, this.selector, s.trim(), this.matcher(this.selector));
                 expect(this.matcher(this.selector).trim()).equals(s.trim());
             } else {
                 this.getChainer().should($elems => {
@@ -80,7 +84,7 @@ export default class CypressWidget extends Widget<string | HTMLElement> {
             return cy.wrap(selector);
         }
         if (selector === null) {
-            throw new Error('Selector object is null. Was the wrong selector string set?')
+            throw new Error('Selector object is null. Was the wrong selector string set? ' + this.selector);
         }
         let parent1 = this.getParent();
         if (parent1 instanceof CypressWidget) {

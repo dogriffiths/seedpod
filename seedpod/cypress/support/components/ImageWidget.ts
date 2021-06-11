@@ -13,10 +13,10 @@ export default class ImageWidget extends CypressWidget {
 
         if (this.isElementBased()) {
             expect((this.get() as HTMLElement).getAttribute('src')).equals(s)
+        } else {
+            this.getChainer().should($el => {
+                expect(($el[0] as HTMLElement).getAttribute('src')).equals(s)
+            })
         }
-
-        this.getChainer().should($el => {
-            expect(($el[0] as HTMLElement).getAttribute('src')).equals(s)
-        })
     }
 }

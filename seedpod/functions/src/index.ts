@@ -1,5 +1,6 @@
 import * as admin from "firebase-admin";
 import proxy from "./proxy";
+import podcasts from "./podcasts";
 
 const functions = require('firebase-functions');
 
@@ -7,3 +8,4 @@ const functions = require('firebase-functions');
 admin.initializeApp(functions.config().firebase);
 
 exports.proxy = functions.https.onRequest(proxy);
+exports.podcasts = functions.https.onRequest(podcasts);

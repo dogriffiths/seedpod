@@ -23,6 +23,15 @@
         ]
       },
       {
+        "source": "api/podcasts/*",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=30"
+          }
+        ]
+      },
+      {
         "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
         "headers": [
           {
@@ -81,6 +90,10 @@
       {
         "source": "/api/proxy",
         "function": "proxy"
+      },
+      {
+        "source": "/api/podcasts/*",
+        "function": "podcasts"
       },
       {
         "source": "**",
