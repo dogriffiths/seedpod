@@ -2,11 +2,18 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    background-color: #1b191b;
     color: #ebe9eb;
+    border-top-color: #534d53;
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+.Episode:first-child {
+    border-top-style: none;
 }
 
 .Episode-details {
+    background-color: #1b191b;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,12 +29,16 @@
     white-space: nowrap;
     overflow: hidden;
     margin-bottom: 0;
-    max-width: calc(100vw - 300px);
+}
+
+.Episode-detailsText {
+    max-width: calc(100vw - 200px);
 }
 
 .Episode-detailsFile {
     font-size: 60%;
     display: table;
+    max-width: 200px;
 }
 
 .Episode-detailsFileField {
@@ -40,4 +51,14 @@
 
 .Episode-detailsFileField strong {
     text-align: right;
+}
+
+@media screen and (max-width: 900px) {
+    .Episode-detailsText {
+        max-width: calc(100vw - 60px);
+    }
+
+    .Episode-detailsFile {
+        display: none;
+    }
 }

@@ -18,7 +18,7 @@ const EpisodeMedia = ({episode, image, open}) => {
                         <source src={episode.enclosure.url} type={episode.enclosure.type}/>
                     </video>
                 ) : (
-                    <img src={image}/>
+                    <img src={image} alt='Episode illustration'/>
                 )
             )
         }

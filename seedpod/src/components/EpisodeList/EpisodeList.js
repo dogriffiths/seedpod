@@ -1,6 +1,10 @@
 import Episode from "../Episode";
 
 const EpisodeList = ({error, loading, feed}) => {
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
     if (error) {
         return <div className='error'>
             {error}

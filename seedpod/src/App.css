@@ -6,3 +6,15 @@ body {
 .App {
     margin: 32px;
 }
+
+@media screen and (max-width: 900px) {
+    .App {
+        margin: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .App {
+        margin: 0;
+    }
+}
