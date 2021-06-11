@@ -1,6 +1,16 @@
 body {
     background-color: black;
     color: #ebe9eb;
+    scrollbar-color: #7d7679 #262425;
+}
+
+::-webkit-scrollbar {
+    background: #262425;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #7d7679;
+    -webkit-border-radius: 1ex;
 }
 
 .App {
