@@ -40,14 +40,11 @@ const Episode = ({episode, feed}) => {
                 </div>
             </div>
         </div>
-        {
-            open &&
-            <EpisodeMedia
-                episode={episode}
-                image={episode.itunes.image || feed.itunes.image}
-                open
-            />
-        }
+        <EpisodeMedia
+            episode={episode}
+            image={episode.itunes.image || feed.itunes.image}
+            open={open}
+        />
     </div>
 }
 

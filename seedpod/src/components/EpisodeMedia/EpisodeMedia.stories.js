@@ -16,7 +16,7 @@ export const Basic = () => <EpisodeMedia/>;
 export const WithAudioEpisode = () => <EpisodeMedia
     image={imageURL}
     episode={{
-        description: '<p>This is an audio episode</p>',
+        content: '<p>This is an audio episode</p>',
         enclosure: {
             url: audioURL,
             type: 'audio/mpeg',
@@ -25,14 +25,36 @@ export const WithAudioEpisode = () => <EpisodeMedia
     open
 />;
 
+export const WithAudioEpisodeNotOpen = () => <EpisodeMedia
+    image={imageURL}
+    episode={{
+        content: 'This is an audio episode',
+        enclosure: {
+            url: audioURL,
+            type: 'audio/mpeg',
+        }
+    }}
+/>;
+
 export const WithVideoEpisode = () => <EpisodeMedia
     image={imageURL}
     episode={{
-        description: '<p>This is a video</p>',
+        content: 'This is a video',
         enclosure: {
             url: videoURL,
             type: 'video/mp4',
         }
     }}
     open
+/>;
+
+export const WithVideoEpisodeNotOpen = () => <EpisodeMedia
+    image={imageURL}
+    episode={{
+        content: 'This is a video',
+        enclosure: {
+            url: videoURL,
+            type: 'video/mp4',
+        }
+    }}
 />;

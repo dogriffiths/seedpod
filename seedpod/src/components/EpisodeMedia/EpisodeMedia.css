@@ -4,6 +4,21 @@
     margin-bottom: 12px;
     color: #ebe9eb;
     cursor: default;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.EpisodeMedia {
+    height: 300px;
+    overflow-y: scroll;
+    transition: height 0.5s;
+}
+
+.EpisodeMedia.EpisodeMedia-closed {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .EpisodeMedia a {
@@ -23,7 +38,7 @@
 
 .EpisodeMedia audio {
     margin-top: 12px;
-    width: calc(100vw - 300px - 104px);
+    width: calc(100vw - 300px - 128px);
     height: 50px;
 }
 
@@ -51,7 +66,7 @@
 
 @media screen and (max-width: 900px) {
     .EpisodeMedia audio {
-        width: calc(100vw - 300px - 72px);
+        width: calc(100vw - 300px - 96px);
     }
 }
 
@@ -64,12 +79,21 @@
     .EpisodeMedia {
         flex-direction: column;
         padding: 0;
+        margin-left: 12px;
+        margin-right: 12px;
+        height: 850px;
     }
 
     .EpisodeMedia audio {
         margin-top: 12px;
         margin-bottom: 12px;
-        width: calc(100vw - 24px);
+        width: calc(100vw - 48px);
         order: -1;
+    }
+
+    .EpisodeMedia-detailsDescription {
+        /*min-height: 248px;*/
+        /*max-height: 248px;*/
+        margin-bottom: 24px;
     }
 }

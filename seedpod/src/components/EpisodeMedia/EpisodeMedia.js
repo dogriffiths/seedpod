@@ -9,18 +9,18 @@ const EpisodeMedia = ({episode, image, open}) => {
     const isVideo = episode.enclosure.type.indexOf('video') !== -1;
     const description = episode['content:encoded'] || episode.content;
 
-    return <div className='EpisodeMedia'>
+    return <div className={`EpisodeMedia ${open ? '' : 'EpisodeMedia-closed'}`}>
         {
-            open && image &&
-            (
-                isVideo ? (
-                    <video controls poster={image}>
-                        <source src={episode.enclosure.url} type={episode.enclosure.type}/>
-                    </video>
-                ) : (
-                    <img src={image} alt='Episode illustration'/>
-                )
-            )
+            (open && isVideo) &&
+            <video controls poster={image}>
+                <source src={episode.enclosure.url} type={episode.enclosure.type}/>
+            </video>
+        }
+        {
+            (!open || !isVideo) &&
+            <img
+                src={image ? image : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='}
+                alt='Episode illustration'/>
         }
         <div className='EpisodeMedia-details'>
             <div className='EpisodeMedia-detailsDescription'>
