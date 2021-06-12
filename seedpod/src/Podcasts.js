@@ -8,15 +8,16 @@ const Podcast = ({url, title, description, image}) => {
             fontDecoration: 'none',
             float: 'left',
             marginBottom: 16,
-            marginRight: 16,
+            marginLeft: 8,
+            marginRight: 8,
             color: 'white',
         }}>
-            <img src={image} className='Podcast-image' style={{width: 200, height: 200}} alt={'Podcasts image'}
+            <img src={image} className='Podcast-image' style={{width: 162, height: 162}} alt={'Podcasts image'}
                  title={description}
             />
             <div className='Podcast-title'
                  style={{
-                     maxWidth: 200,
+                     maxWidth: 162,
                      overflow: 'hidden',
                      textOverflow: 'ellipsis',
                      whiteSpace: 'nowrap',
@@ -28,7 +29,7 @@ const Podcast = ({url, title, description, image}) => {
             </div>
             <div className='Podcast-description'
                  style={{
-                     maxWidth: 200,
+                     maxWidth: 162,
                      overflow: 'hidden',
                      textOverflow: 'ellipsis',
                      whiteSpace: 'nowrap',
