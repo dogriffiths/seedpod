@@ -1,6 +1,7 @@
 import parse from 'html-react-parser'
 import './EpisodeMedia.css'
 import {useEffect, useState} from "react";
+import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
 const EpisodeMedia = ({episode, image, open, onPlaying}) => {
     const [neverOpen, setNeverOpen] = useState(true);
@@ -53,9 +54,10 @@ const EpisodeMedia = ({episode, image, open, onPlaying}) => {
             {
                 open && (episode.enclosure.type.indexOf('audio') !== -1)
                     ?
-                    <audio controls onPlaying={evt => onPlaying && onPlaying(evt)}>
-                        <source src={episode.enclosure.url} type={episode.enclosure.type}/>
-                    </audio>
+                    <AudioPlayer src={episode.enclosure.url} onPlaying={onPlaying}/>
+                    // <audio controls onPlaying={evt => onPlaying && onPlaying(evt)}>
+                    //     <source src={episode.enclosure.url} type={episode.enclosure.type}/>
+                    // </audio>
                     : null
             }
         </div>

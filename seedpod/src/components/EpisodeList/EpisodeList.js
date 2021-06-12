@@ -19,6 +19,7 @@ const EpisodeList = ({error, loading, feed}) => {
             feed && feed.items && feed.items.map(i => (
                 <Episode key={i.guid} episode={i} feed={feed}
                          onPlaying={evt => {
+                             console.log('XXXX received event', evt)
                              if (currentMedia.current && currentMedia.current !== evt.target) {
                                  currentMedia.current.pause();
                              }

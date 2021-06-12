@@ -11,7 +11,7 @@ const useFeed = (url) => {
     useEffect(() => {
         let canceled = false;
         setLoading(true);
-//        setError(null)
+        setError(null);
         (async () => {
 
             try {
@@ -22,7 +22,7 @@ const useFeed = (url) => {
                     setFeed(f)
                 }
             } catch (err) {
-               setError(err.message)
+                setError(err.message)
             }
             setLoading(false)
         })();
