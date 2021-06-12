@@ -43,6 +43,7 @@ const Episode = ({episode, feed, onPlaying}) => {
         <EpisodeMedia
             episode={episode}
             image={episode.itunes.image || feed.itunes.image}
+            podcastImage={episode.itunes.image}
             open={open}
             onPlaying={onPlaying}
         />

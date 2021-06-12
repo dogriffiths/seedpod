@@ -1,3 +1,11 @@
+# Icon
+
+Icon from the The Noun Project.
+
+Gayatri, from The Noun Project, CC BY 3.0 US <https://creativecommons.org/licenses/by/3.0/us/deed.en>, via Wikimedia Commons
+
+https://commons.wikimedia.org/wiki/File:Seedling.svg
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

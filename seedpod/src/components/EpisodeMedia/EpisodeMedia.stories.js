@@ -25,6 +25,18 @@ export const WithAudioEpisode = () => <EpisodeMedia
     open
 />;
 
+export const WithPodcastImageButNoEpisodeImage = () => <EpisodeMedia
+    podcastImage={imageURL}
+    episode={{
+        content: '<p>This is an audio episode</p>',
+        enclosure: {
+            url: audioURL,
+            type: 'audio/mpeg',
+        }
+    }}
+    open
+/>;
+
 export const WithAudioEpisodeNotOpen = () => <EpisodeMedia
     image={imageURL}
     episode={{

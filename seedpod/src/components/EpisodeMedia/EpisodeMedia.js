@@ -3,7 +3,7 @@ import './EpisodeMedia.css'
 import {useEffect, useState} from "react";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
-const EpisodeMedia = ({episode, image, open, onPlaying}) => {
+const EpisodeMedia = ({episode, image, open, onPlaying, podcastImage}) => {
     const [neverOpen, setNeverOpen] = useState(true);
     const [displayDescription, setDisplayDescription] = useState('');
 
@@ -19,7 +19,7 @@ const EpisodeMedia = ({episode, image, open, onPlaying}) => {
         let dd = description
         try {
             dd = parse(description.replace(/font - size/g, 'font-size'));
-        } catch(err) {
+        } catch (err) {
             console.error(err);
         }
         setDisplayDescription(dd)
@@ -41,9 +41,19 @@ const EpisodeMedia = ({episode, image, open, onPlaying}) => {
         {
             (!open || !isVideo) &&
             <img
-                src={(image && !neverOpen) ? image : 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='}
+                src={(image && !neverOpen) ? image
+                    :
+                    'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+                }
+                style={{
+                    backgroundImage: `url(${(podcastImage && !neverOpen) ? podcastImage
+                        :
+                        'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='})`,
+                    backgroundSize: 'cover'
+                }}
                 className='EpisodeMedia-image'
-                alt='Episode illustration'/>
+                alt='Episode illustration'
+            />
         }
         <div className='EpisodeMedia-details'>
             <div className='EpisodeMedia-detailsDescription'>
@@ -55,9 +65,6 @@ const EpisodeMedia = ({episode, image, open, onPlaying}) => {
                 open && (episode.enclosure.type.indexOf('audio') !== -1)
                     ?
                     <AudioPlayer src={episode.enclosure.url} onPlaying={onPlaying}/>
-                    // <audio controls onPlaying={evt => onPlaying && onPlaying(evt)}>
-                    //     <source src={episode.enclosure.url} type={episode.enclosure.type}/>
-                    // </audio>
                     : null
             }
         </div>
