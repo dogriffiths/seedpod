@@ -1,9 +1,9 @@
-import './AudioPlayer.css';
 import {useEffect, useRef, useState} from "react";
 import useClock from "../../useClock";
+import useAudio from "../../hooks/useAudio";
+import './AudioPlayer.css';
 
 function numString(x) {
-    // console.log('XXXXX x, typeof x', x, typeof x)
     if ('' + x !== 'NaN') {
         return '' + x;
     }
@@ -37,19 +37,15 @@ function formatTime(t) {
     return result;
 }
 
-const AudioPlayer = ({src, onPlaying}) => {
+const AudioPlayer = ({src}) => {
+    const audio = useAudio();
     const clip = useRef();
     const [canPlay, setCanPlay] = useState(false);
     const [paused, setPaused] = useState(false);
     const clock = useClock(1000);
 
     useEffect(() => {
-        clip.current = new Audio(src);
-        return () => {
-            if (clip.current) {
-                clip.current.pause();
-            }
-        }
+        clip.current = audio.get(src);
     }, [src]);
 
     useEffect(() => {
@@ -57,19 +53,22 @@ const AudioPlayer = ({src, onPlaying}) => {
             setCanPlay(true);
         };
         if (clip.current) {
+            if (clip.current.readyState >= 2) {
+                setCanPlay(true);
+            }
             clip.current.addEventListener('canplay', listener);
-            clip.current.addEventListener('playing', onPlaying)
         }
         return () => {
             if (clip.current) {
                 clip.current.removeEventListener('canplay', listener);
-                clip.current.removeEventListener('playing', onPlaying);
             }
         }
-    }, [clip.current, onPlaying]);
+    }, [clip.current]);
 
     useEffect(() => {
-        setPaused(clip.current.paused);
+        if (clip.current) {
+            setPaused(clip.current.paused);
+        }
     }, [clip.current && clip.current.paused]);
 
     return <div className='AudioPlayer'
@@ -90,8 +89,6 @@ const AudioPlayer = ({src, onPlaying}) => {
              role='button'
              tabIndex={0}
              onClick={() => {
-                 console.log('XXXX click div!', clock)
-                 console.log('XXXXX clip.current.paused', clip.current.paused)
                  if (clip.current) {
                      if (clip.current.paused) {
                          clip.current.play();

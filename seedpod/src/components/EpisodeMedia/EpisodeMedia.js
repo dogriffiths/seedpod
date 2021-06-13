@@ -3,7 +3,7 @@ import './EpisodeMedia.css'
 import {useEffect, useState} from "react";
 import AudioPlayer from "../AudioPlayer/AudioPlayer";
 
-const EpisodeMedia = ({episode, image, open, onPlaying, podcastImage}) => {
+const EpisodeMedia = ({episode, image, open, podcastImage}) => {
     const [neverOpen, setNeverOpen] = useState(true);
     const [displayDescription, setDisplayDescription] = useState('');
 
@@ -34,7 +34,7 @@ const EpisodeMedia = ({episode, image, open, onPlaying, podcastImage}) => {
     return <div className={`EpisodeMedia ${open ? '' : 'EpisodeMedia-closed'}`}>
         {
             (open && isVideo) &&
-            <video controls poster={image} onPlaying={evt => onPlaying && onPlaying(evt)}>
+            <video controls poster={image}>
                 <source src={episode.enclosure.url} type={episode.enclosure.type}/>
             </video>
         }
@@ -64,7 +64,7 @@ const EpisodeMedia = ({episode, image, open, onPlaying, podcastImage}) => {
             {
                 open && (episode.enclosure.type.indexOf('audio') !== -1)
                     ?
-                    <AudioPlayer src={episode.enclosure.url} onPlaying={onPlaying}/>
+                    <AudioPlayer src={episode.enclosure.url}/>
                     : null
             }
         </div>

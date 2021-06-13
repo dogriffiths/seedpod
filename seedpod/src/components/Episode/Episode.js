@@ -3,7 +3,7 @@ import EpisodeMedia from "../EpisodeMedia";
 import {useState} from "react";
 import './Episode.css';
 
-const Episode = ({episode, feed, onPlaying}) => {
+const Episode = ({episode, feed}) => {
     const [open, setOpen] = useState(false);
 
     if (!episode) {
@@ -45,7 +45,6 @@ const Episode = ({episode, feed, onPlaying}) => {
             image={episode.itunes.image || feed.itunes.image}
             podcastImage={episode.itunes.image}
             open={open}
-            onPlaying={onPlaying}
         />
     </div>
 }

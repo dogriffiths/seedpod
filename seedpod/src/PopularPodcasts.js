@@ -1,10 +1,12 @@
 import Podcasts from "./Podcasts";
 import {useEffect, useState} from "react";
+import useAudio from "./hooks/useAudio";
 
 const usePodcasts = (url) => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState();
     const [error, setError] = useState();
+    const audio = useAudio();
 
     useEffect(() => {
         let canceled = false;
