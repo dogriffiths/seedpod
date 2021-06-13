@@ -1,0 +1,117 @@
+.Player {
+    background-color: #262425;
+    padding: 12px;
+    /*margin-bottom: 36px;*/
+    color: #ebe9eb;
+    cursor: default;
+    /*margin-left: -32px;*/
+    /*margin-right: -32px;*/
+    overflow: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    height: 100vh;
+}
+
+.Player {
+    /*height: 300px;*/
+    transition: height 0.5s;
+}
+
+.Player.Player-closed {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.Player a {
+    color: lightgreen;
+}
+
+.Player .Player-image {
+    width: 300px;
+    height: 300px;
+}
+
+.Player video {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+}
+
+.Player .AudioPlayer {
+    margin-top: 12px;
+    /*width: calc(100vw - 300px - 128px);*/
+    /*width: calc(100vw - 300px - 150px);*/
+    height: 50px;
+}
+
+.Player {
+    display: flex;
+    flex-direction: row;
+}
+
+.Player-details {
+    display: flex;
+    flex-direction: column;
+    /*margin-left: 12px;*/
+    /*margin-right: 12px;*/
+    width: 100%;
+}
+
+.Player-detailsDescription {
+    /*min-height: 236px;*/
+    /*max-height: 236px;*/
+    min-height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+    overflow-y: scroll;
+}
+
+.Player-detailsDescription p:first-child {
+    margin-top: 0;
+}
+
+.Player-detailsDescription *:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 750px) {
+    .Player-details {
+        width: auto;
+    }
+
+    .Player .Player-image {
+        width: 100vw;
+        height: 80vw;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+
+    .Player {
+        flex-direction: column;
+        padding: 0;
+        /*margin-left: 12px;*/
+        /*margin-right: 12px;*/
+        height: calc(300px + 64px + 360px);
+    }
+
+    .Player .AudioPlayer {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        /*width: calc(100vw - 48px);*/
+        order: -1;
+    }
+
+    .Player-detailsDescription {
+        /*min-height: 248px;*/
+        /*max-height: 248px;*/
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .Player .Player-image {
+        width: 100vw;
+        height: 100vw;
+    }
+}

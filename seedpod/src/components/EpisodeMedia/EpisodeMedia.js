@@ -66,7 +66,7 @@ const EpisodeMedia = ({episode, image, open, podcastImage}) => {
             {
                 open && (episode.enclosure.type.indexOf('audio') !== -1)
                     ?
-                    <AudioPlayer src={episode.enclosure.url} title={title} description={shortDescription}/>
+                    <AudioPlayer src={episode.enclosure.url} title={title} description={shortDescription} image={image}/>
                     : null
             }
         </div>

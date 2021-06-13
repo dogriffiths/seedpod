@@ -16,7 +16,7 @@ const AudioProvider = (props) => {
         setCurrentClip(url);
     };
 
-    const getClip = function (url, title, description) {
+    const getClip = function (url, title, description, image) {
         if (url in clips) {
             clips[url].audio.onplaying = listener;
             return clips[url];
@@ -26,7 +26,8 @@ const AudioProvider = (props) => {
             audio,
             title,
             description,
-            url
+            url,
+            image
         };
         audio.onplaying = listener;
         return clips[url];

@@ -37,7 +37,7 @@ function formatTime(t) {
     return result;
 }
 
-const AudioPlayer = ({src, title, description}) => {
+const AudioPlayer = ({src, title, description, image}) => {
     const audio = useAudio();
     const clip = useRef();
     const [canPlay, setCanPlay] = useState(false);
@@ -45,7 +45,7 @@ const AudioPlayer = ({src, title, description}) => {
     const clock = useClock(1000);
 
     useEffect(() => {
-        clip.current = audio.get(src, title, description);
+        clip.current = audio.get(src, title, description, image);
     }, [src]);
 
     useEffect(() => {
