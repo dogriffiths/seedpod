@@ -10,28 +10,33 @@ const AudioProvider = (props) => {
         const url = evt.target.src;
         for (let cu in clips) {
             if (cu && cu !== url) {
-                clips[cu].pause();
+                clips[cu].audio.pause();
             }
         }
         setCurrentClip(url);
     };
 
-    const getClip = function (url) {
+    const getClip = function (url, title, description) {
         if (url in clips) {
-            clips[url].onplaying = listener;
+            clips[url].audio.onplaying = listener;
             return clips[url];
         }
         let audio = new Audio(url);
-        clips[url] = audio;
+        clips[url] = {
+            audio,
+            title,
+            description,
+            url
+        };
         audio.onplaying = listener;
-        return audio;
+        return clips[url];
     };
     return (
         <AudioContext.Provider
             value={{
                 get: getClip,
                 current: () => {
-                    return currentClip;
+                    return currentClip && clips[currentClip];
                 }
             }}
         >

@@ -21,7 +21,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "yarn run build && (cd functions && npm install) && firebase deploy -P seedpod-67d80",
+    "deploy": "npm run build && (cd functions && npm install) && firebase deploy -P seedpod-67d80",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
   },

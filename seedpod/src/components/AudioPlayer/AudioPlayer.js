@@ -37,7 +37,7 @@ function formatTime(t) {
     return result;
 }
 
-const AudioPlayer = ({src}) => {
+const AudioPlayer = ({src, title, description}) => {
     const audio = useAudio();
     const clip = useRef();
     const [canPlay, setCanPlay] = useState(false);
@@ -45,7 +45,7 @@ const AudioPlayer = ({src}) => {
     const clock = useClock(1000);
 
     useEffect(() => {
-        clip.current = audio.get(src);
+        clip.current = audio.get(src, title, description);
     }, [src]);
 
     useEffect(() => {
@@ -53,32 +53,32 @@ const AudioPlayer = ({src}) => {
             setCanPlay(true);
         };
         if (clip.current) {
-            if (clip.current.readyState >= 2) {
+            if (clip.current.audio.readyState >= 2) {
                 setCanPlay(true);
             }
-            clip.current.addEventListener('canplay', listener);
+            clip.current.audio.addEventListener('canplay', listener);
         }
         return () => {
             if (clip.current) {
-                clip.current.removeEventListener('canplay', listener);
+                clip.current.audio.removeEventListener('canplay', listener);
             }
         }
     }, [clip.current]);
 
     useEffect(() => {
         if (clip.current) {
-            setPaused(clip.current.paused);
+            setPaused(clip.current.audio.paused);
         }
-    }, [clip.current && clip.current.paused]);
+    }, [clip.current && clip.current.audio.paused]);
 
     return <div className='AudioPlayer'
                 onKeyPress={(evt) => {
                     if (evt.key === ' ') {
-                        if (clip.current.paused) {
-                            clip.current.play();
+                        if (clip.current.audio.paused) {
+                            clip.current.audio.play();
                             setPaused(false);
                         } else {
-                            clip.current.pause();
+                            clip.current.audio.pause();
                             setPaused(true);
                         }
                         evt.preventDefault();
@@ -90,11 +90,11 @@ const AudioPlayer = ({src}) => {
              tabIndex={0}
              onClick={() => {
                  if (clip.current) {
-                     if (clip.current.paused) {
-                         clip.current.play();
+                     if (clip.current.audio.paused) {
+                         clip.current.audio.play();
                          setPaused(false);
                      } else {
-                         clip.current.pause();
+                         clip.current.audio.pause();
                          setPaused(true);
                      }
                  }

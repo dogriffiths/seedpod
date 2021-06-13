@@ -54,7 +54,6 @@ export default class CypressWidget extends Widget<string | HTMLElement> {
                     " inside " +
                     (this.getParent().constructor as any).name;
                 }
-                console.log('XXXXX $elems', this, this.selector, s.trim(), this.matcher(this.selector));
                 expect(this.matcher(this.selector).trim()).equals(s.trim());
             } else {
                 this.getChainer().should($elems => {
