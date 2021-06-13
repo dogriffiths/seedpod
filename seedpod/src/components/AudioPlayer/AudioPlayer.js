@@ -114,22 +114,22 @@ const AudioPlayer = ({src, title, description}) => {
         </div>
         <div className='AudioPlayer-time'>
             <div className='AudioPlayer-timeSummary'>
-                <div className='AudioPlayer-currentTime'>{clip.current && formatTime(clip.current.currentTime)}</div>
+                <div className='AudioPlayer-currentTime'>{clip.current && formatTime(clip.current.audio.currentTime)}</div>
                 /
-                {clip.current && formatTime(clip.current.duration)}
+                {clip.current && formatTime(clip.current.audio.duration)}
             </div>
 
             <input
                 className='AudioPlayer-timeController'
                 type="range"
                 min={0}
-                max={clip.current ? clip.current.duration : 0} value={clip.current ? clip.current.currentTime : 0}
+                max={clip.current ? clip.current.audio.duration : 0} value={clip.current ? clip.current.audio.currentTime : 0}
                 onChange={evt => {
                     if (clip.current) {
-                        if (clip.current.fastSeek) {
-                            clip.current.fastSeek(evt.target.value);
+                        if (clip.current.audio.fastSeek) {
+                            clip.current.audio.fastSeek(evt.target.value);
                         } else {
-                            clip.current.currentTime = evt.target.value;
+                            clip.current.audio.currentTime = evt.target.value;
                         }
                     }
                 }}
