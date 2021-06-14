@@ -26,7 +26,7 @@ const Player = () => {
         setDisplayDescription(dd)
     }, [description]);
 
-    console.log('XXXX audio', audio, currentAudio)
+    console.log('XXXX audio', audio, currentAudio, description)
 
     if (Object.keys(audio).length === 0) {
         throw new Error('Should be wrapped in an AudioProvider')
@@ -60,6 +60,7 @@ const Player = () => {
                 }
             </div>
             <div className='Player-detailsDescription'>
+                <h1>{title}</h1>
                 {
                     displayDescription
                 }

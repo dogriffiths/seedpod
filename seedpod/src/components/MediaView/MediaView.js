@@ -16,7 +16,8 @@ const MediaView = ({children}) => {
             bottom: 0,
             width: '100%',
             color: 'white',
-            backgroundColor: 'black'
+            backgroundColor: 'black',
+            cursor: 'pointer',
         }}>
             {
                 currentAudioURL &&

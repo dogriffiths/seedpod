@@ -13,7 +13,11 @@ export default {
     component: Player,
 };
 
-export const Basic = () => <MemoryRouter><Player/></MemoryRouter>;
+export const Basic = () => <MemoryRouter>
+    <AudioProvider initialClip='http://192.168.1.177/media/movies/Andy%20Currant%20Specimens.mp3'>
+    <Player/>
+    </AudioProvider>
+</MemoryRouter>;
 
 export const WithAudioEpisode = () => <MemoryRouter>
     <AudioProvider initialClip='http://192.168.1.177/media/movies/Andy%20Currant%20Specimens.mp3'>

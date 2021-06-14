@@ -5,6 +5,7 @@
     align-items: center;
     color: #ebe9eb;
     border-radius: 4px;
+    cursor: normal;
 }
 
 .AudioPlayer-time {
