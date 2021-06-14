@@ -1,27 +1,19 @@
 .Player {
     background-color: #262425;
-    padding: 12px;
-    /*margin-bottom: 36px;*/
+    padding: 0;
     color: #ebe9eb;
     cursor: default;
-    /*margin-left: -32px;*/
-    /*margin-right: -32px;*/
     overflow: hidden;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    height: 100vh;
+    display: flex;
+    flex-direction: row;
 }
 
-.Player {
-    /*height: 300px;*/
-    transition: height 0.5s;
-}
-
-.Player.Player-closed {
-    height: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-bottom: 0;
+.Player-info {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
 }
 
 .Player a {
@@ -29,42 +21,23 @@
 }
 
 .Player .Player-image {
-    width: 300px;
-    height: 300px;
+    width: min(300px, 100vh - 64px);
+    height: min(300px, 100vh - 64px);
 }
 
-.Player video {
-    width: 300px;
-    height: 300px;
-    background-color: black;
-}
-
-.Player .AudioPlayer {
-    margin-top: 12px;
-    /*width: calc(100vw - 300px - 128px);*/
-    /*width: calc(100vw - 300px - 150px);*/
-    height: 50px;
-}
-
-.Player {
-    display: flex;
-    flex-direction: row;
-}
-
-.Player-details {
-    display: flex;
-    flex-direction: column;
-    /*margin-left: 12px;*/
-    /*margin-right: 12px;*/
+.Player-controls {
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
+    color: white;
 }
 
 .Player-detailsDescription {
-    /*min-height: 236px;*/
-    /*max-height: 236px;*/
-    min-height: calc(100vh - 64px);
-    max-height: calc(100vh - 64px);
+    padding: 12px;
+    max-height: calc(100vh - 80px);
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .Player-detailsDescription p:first-child {
@@ -74,6 +47,47 @@
 .Player-detailsDescription *:last-child {
     margin-bottom: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .Player {
+        max-height: calc(100vh - 64px);
+    }
+
+    .Player-info {
+        flex-direction: column;
+    }
+
+    .Player .Player-image {
+        width: 100vw;
+        height: 100vw;
+    }
+}
+
+
+/*
+.Player video {
+    width: 300px;
+    height: 300px;
+    background-color: black;
+}
+
+.Player .AudioPlayer {
+    margin-top: 12px;
+    height: 50px;
+}
+
+.Player-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.Player-detailsDescription {
+    min-height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+    overflow-y: scroll;
+}
+
 
 @media screen and (max-width: 750px) {
     .Player-details {
@@ -90,21 +104,16 @@
     .Player {
         flex-direction: column;
         padding: 0;
-        /*margin-left: 12px;*/
-        /*margin-right: 12px;*/
         height: calc(300px + 64px + 360px);
     }
 
     .Player .AudioPlayer {
         margin-top: 12px;
         margin-bottom: 12px;
-        /*width: calc(100vw - 48px);*/
         order: -1;
     }
 
     .Player-detailsDescription {
-        /*min-height: 248px;*/
-        /*max-height: 248px;*/
         margin-bottom: 24px;
     }
 }
@@ -115,3 +124,4 @@
         height: 100vw;
     }
 }
+*/

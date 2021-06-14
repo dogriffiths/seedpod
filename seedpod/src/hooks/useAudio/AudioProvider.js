@@ -1,10 +1,21 @@
 import AudioContext from './AudioContext'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const clips = {};
 
-const AudioProvider = (props) => {
-    const [currentClip, setCurrentClip] = useState();
+const AudioProvider = ({children, initialClip}) => {
+    const [currentClip, setCurrentClip] = useState(initialClip);
+
+    useEffect(() => {
+        if (initialClip) {
+            clips[initialClip] = {
+                url: initialClip,
+                audio: new Audio(initialClip),
+                description: 'XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX XXXXX ',
+                image: 'http://192.168.1.177/media/movies/movies.jpg'
+            }
+        }
+    }, [initialClip]);
 
     const listener = function (evt) {
         const url = evt.target.src;
@@ -16,7 +27,7 @@ const AudioProvider = (props) => {
         setCurrentClip(url);
     };
 
-    const getClip = function (url, title, description, image) {
+    const getClip = function (url, title, description, image, longDescription) {
         if (url in clips) {
             clips[url].audio.onplaying = listener;
             return clips[url];
@@ -27,7 +38,8 @@ const AudioProvider = (props) => {
             title,
             description,
             url,
-            image
+            image,
+            longDescription
         };
         audio.onplaying = listener;
         return clips[url];
@@ -41,7 +53,7 @@ const AudioProvider = (props) => {
                 }
             }}
         >
-            {props.children}
+            {children}
         </AudioContext.Provider>
     )
 }

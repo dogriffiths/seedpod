@@ -15,7 +15,7 @@ const EpisodeMedia = ({episode, image, open, podcastImage}) => {
 
     const title = episode && episode.title;
     const description = episode && (episode['content:encoded'] || episode.content);
-    const shortDescription = episode.contentSnippet || episode.content;
+    const shortDescription = episode && (episode.contentSnippet || episode.content);
 
     useEffect(() => {
         let dd = description
@@ -66,7 +66,13 @@ const EpisodeMedia = ({episode, image, open, podcastImage}) => {
             {
                 open && (episode.enclosure.type.indexOf('audio') !== -1)
                     ?
-                    <AudioPlayer src={episode.enclosure.url} title={title} description={shortDescription} image={image}/>
+                    <AudioPlayer
+                        src={episode.enclosure.url}
+                        title={title}
+                        description={shortDescription}
+                        longDescription={description}
+                        image={image}
+                    />
                     : null
             }
         </div>
