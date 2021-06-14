@@ -1,12 +1,10 @@
 import Podcasts from "./Podcasts";
 import {useEffect, useState} from "react";
-import useAudio from "./hooks/useAudio";
 
 const usePodcasts = (url) => {
     const [data, setData] = useState();
     const [loading, setLoading] = useState();
     const [error, setError] = useState();
-    const audio = useAudio();
 
     useEffect(() => {
         let canceled = false;
@@ -15,7 +13,6 @@ const usePodcasts = (url) => {
                 setLoading(true)
                 const response = await fetch(url)
                 if (!response.ok) {
-                    const text = await response.text()
                     throw new Error(
                         `Unable to read: ${url}`
                     )

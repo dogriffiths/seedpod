@@ -17,39 +17,44 @@ const MediaView = ({children}) => {
             width: '100%',
             color: 'white',
             backgroundColor: 'black',
-            cursor: 'pointer',
-        }}>
+        }}
+        >
             {
                 currentAudioURL &&
                 <>
-                    <div style={{
-                        fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;',
-                        fontSize: 12,
-                        marginLeft: 8,
-                        marginRight: 8,
-                        marginTop: 8,
-                        marginBottom: 0,
-                        padding: 0,
-                        fontWeight: 'bold',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                    }}
+                    <div className='MediaView-info'
                          onClick={() => history.push('/player')}
-                    >{currentAudio.title}</div>
-                    <div style={{
-                        fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;',
-                        fontSize: 12,
-                        marginLeft: 8,
-                        marginRight: 8,
-                        marginTop: 8,
-                        marginBottom: 0,
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                    }}
-                         onClick={() => history.push('/player')}
-                    >{currentAudio.description}</div>
+                         style={{
+                             cursor: 'pointer',
+                         }}
+                    >
+                        <div style={{
+                            fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;',
+                            fontSize: 12,
+                            marginLeft: 8,
+                            marginRight: 8,
+                            marginTop: 8,
+                            marginBottom: 0,
+                            padding: 0,
+                            fontWeight: 'bold',
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                        }}
+                        >{currentAudio.title}</div>
+                        <div style={{
+                            fontFamily: '-apple-system, BlinkMacSystemFont, \'Segoe UI\', \'Roboto\', \'Oxygen\', \'Ubuntu\', \'Cantarell\', \'Fira Sans\', \'Droid Sans\', \'Helvetica Neue\', sans-serif;',
+                            fontSize: 12,
+                            marginLeft: 8,
+                            marginRight: 8,
+                            marginTop: 8,
+                            marginBottom: 0,
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                        }}
+                        >{currentAudio.description}</div>
+                    </div>
                     <AudioPlayer src={currentAudioURL}/>
                 </>
             }

@@ -7,8 +7,10 @@ const useFeed = (url) => {
     const [feed, setFeed] = useState()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState()
+    console.log('XXXXX url', url)
 
     useEffect(() => {
+        console.log('XXXXX url changed', url)
         let canceled = false;
         setLoading(true);
         setError(null);
