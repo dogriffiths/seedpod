@@ -1,5 +1,6 @@
 .Player {
     background-color: #262425;
+    /*background-color: black;*/
     padding: 0;
     color: #ebe9eb;
     cursor: default;
@@ -8,6 +9,7 @@
     scrollbar-width: none;  /* Firefox */
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
 }
 
 .Player-info {
