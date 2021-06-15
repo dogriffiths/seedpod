@@ -29,7 +29,8 @@ exports.lookupFeed = functions.database.ref('/lookup')
                 description: feed.description,
                 image: feed.itunes ? feed.itunes.image : (feed.image ? feed.image.url : ''),
                 title: feed.title,
-                url: url
+                url: url,
+                categories: feed.itunes ? (feed.itunes.categories ? feed.itunes.categories : []) : [],
             });
             return data.ref.set(null);
         }
