@@ -1,4 +1,5 @@
 import * as express from 'express';
+import * as admin from "firebase-admin";
 const request = require('request')
 const cookieParser = require('cookie-parser')();
 
@@ -27,6 +28,10 @@ proxy.get('*', function (req, res) {
             function (error: any, response: any, body: any) {
                 if (error) {
                     console.error('error: ' + response.statusCode)
+                } else {
+                    const db = admin.database();
+                    const ref = db.ref('lookup');
+                    ref.set(targetURL);
                 }
             }).pipe(res);
     }

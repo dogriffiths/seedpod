@@ -27,7 +27,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "max-age=30"
+            "value": "max-age=3600"
           }
         ]
       },
@@ -92,7 +92,7 @@
         "function": "proxy"
       },
       {
-        "source": "/api/podcasts/*",
+        "source": "/api/podcasts/**",
         "function": "podcasts"
       },
       {
