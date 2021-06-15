@@ -1,8 +1,9 @@
 import Podcasts from "./Podcasts";
 import {useEffect, useState} from "react";
+import usePersistentState from "./hooks/usePersistentState";
 
 const usePodcasts = (url) => {
-    const [data, setData] = useState();
+    const [data, setData] = usePersistentState(url, []);
     const [loading, setLoading] = useState();
     const [error, setError] = useState();
 
@@ -10,7 +11,9 @@ const usePodcasts = (url) => {
         let canceled = false;
         (async() => {
             try {
-                setLoading(true)
+                if ((!data) || (data.length === 0)) {
+                    setLoading(true)
+                }
                 const response = await fetch(url)
                 if (!response.ok) {
                     throw new Error(
