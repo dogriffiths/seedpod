@@ -37,7 +37,7 @@ const EpisodeMedia = ({episode, image, open, podcastImage}) => {
         {
             (open && isVideo) &&
             <video controls poster={image}>
-                <source src={episode.enclosure.url} type={episode.enclosure.type}/>
+                <source src={episode.enclosure && episode.enclosure.url} type={episode.enclosure && episode.enclosure.type}/>
             </video>
         }
         {

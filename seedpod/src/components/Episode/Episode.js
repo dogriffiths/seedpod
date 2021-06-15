@@ -15,7 +15,7 @@ const Episode = ({episode, feed}) => {
         <div
             className='Episode-details'
             onClick={() => setOpen(t => !t)}
-            data-src={episode.enclosure.url}
+            data-src={episode.enclosure && episode.enclosure.url}
         >
             <div className='Episode-detailsText'>
                 <div className='Episode-title'>{episode.title}</div>
@@ -28,15 +28,15 @@ const Episode = ({episode, feed}) => {
             <div className='Episode-detailsFile'>
                 <div className='Episode-detailsFileField'>
                     <strong>Duration:</strong>
-                    <div className='duration Episode-detailsFileFieldValue'>{episode.itunes.duration}</div>
+                    <div className='duration Episode-detailsFileFieldValue'>{episode.itunes && episode.itunes.duration}</div>
                 </div>
                 <div className='Episode-detailsFileField'>
                     <strong>Media type:</strong>
-                    <div className='fileType Episode-detailsFileFieldValue'>{episode.enclosure.type}</div>
+                    <div className='fileType Episode-detailsFileFieldValue'>{episode.enclosure && episode.enclosure.type}</div>
                 </div>
                 <div className='Episode-detailsFileField'>
                     <strong>File size:</strong>
-                    <div className='fileSize Episode-detailsFileFieldValue'>{episode.enclosure.length}</div>
+                    <div className='fileSize Episode-detailsFileFieldValue'>{episode.enclosure && episode.enclosure.length}</div>
                 </div>
             </div>
         </div>
