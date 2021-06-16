@@ -31,7 +31,7 @@ const EpisodeMedia = ({episode, image, open, podcastImage}) => {
         return null
     }
 
-    const isVideo = episode.enclosure.type.indexOf('video') !== -1;
+    const isVideo = episode.enclosure && (episode.enclosure.type.indexOf('video') !== -1);
 
     return <div className={`EpisodeMedia ${open ? '' : 'EpisodeMedia-closed'}`}>
         {

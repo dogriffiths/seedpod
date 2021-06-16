@@ -13,7 +13,7 @@ const Player = () => {
     const image = currentAudio && currentAudio.image;
     const podcastImage = currentAudio && currentAudio.podcastImage;
     const shortDescription = currentAudio && currentAudio.description;
-    const description = currentAudio && currentAudio.longDescription;
+    const description = (currentAudio && currentAudio.longDescription) || shortDescription;
     const [displayDescription, setDisplayDescription] = useState('');
 
     useEffect(() => {
