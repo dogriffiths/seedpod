@@ -9,7 +9,11 @@ const MediaView = ({children}) => {
     const currentAudioURL = currentAudio && currentAudio.url;
 
     return <>
-        {children}
+        <div style={{
+            paddingBottom: currentAudioURL ? 100 : 0
+        }}>
+            {children}
+        </div>
         <div style={{
             position: 'fixed',
             left: 0,

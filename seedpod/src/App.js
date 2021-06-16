@@ -26,8 +26,10 @@ function App() {
                         </Route>
                         <Route path='/categories/:category'>
                             <main>
-                                <URLForm/>
-                                <CategoryPodcasts/>
+                                <MediaView>
+                                    <URLForm/>
+                                    <CategoryPodcasts/>
+                                </MediaView>
                             </main>
                         </Route>
                         <MediaView>
@@ -50,7 +52,8 @@ function App() {
                                     <li><Link to='/categories/Music'>Music</Link></li>
                                     <li><Link to='/categories/News'>News</Link></li>
                                     <li><Link to='/categories/News%20%26%20Politics'>News & Politics</Link></li>
-                                    <li><Link to='/categories/Religion%20%26%20Spirituality'>Religion & Spirituality</Link></li>
+                                    <li><Link to='/categories/Religion%20%26%20Spirituality'>Religion &
+                                        Spirituality</Link></li>
                                     <li><Link to='/categories/Science'>Science</Link></li>
                                     <li><Link to='/categories/Science%20%26%20Medicine'>Science & Medicine</Link></li>
                                     <li><Link to='/categories/Society%20%26%20Culture'>Society & Culture</Link></li>
